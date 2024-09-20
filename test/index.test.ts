@@ -17,4 +17,10 @@ describe('should', () => {
     const version = await latestVersion('abort-controller', { version: 'latest', cwd: process.cwd() })
     expect(version).toBe('3.0.0')
   })
+
+  it('timeout', async () => {
+    // 测试设置超时单位ms
+    const version = await latestVersion('abort-controller', { version: 'latest', timeout: 5000 })
+    expect(version).toBe('3.0.0')
+  })
 })
