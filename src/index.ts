@@ -1,8 +1,12 @@
 import { exec } from 'node:child_process'
 import type { ExecOptions } from 'node:child_process'
 
-export function latestVersion(pkgname: string, options: ExecOptions & { version?: string } = {}) {
-  const { version = 'latest', ...execOptions } = options
+export async function latestVersion(pkgname: string, options: ExecOptions & { version?: string, concurrency?: number } = {}) {
+  const { version = 'latest', concurrency = 1, ...execOptions } = options
+  return Promise.any(Array.from({ length: concurrency }, () => fetchVersion(pkgname, version, execOptions)))
+}
+
+function fetchVersion(pkgname: string, version: string, execOptions: ExecOptions) {
   return new Promise<string>((resolve, reject) => {
     exec(`npm show ${pkgname} --json`, { encoding: 'utf-8', ...execOptions }, (err, stdout) => {
       if (err) {
