@@ -7,20 +7,20 @@ describe('should', () => {
     expect(version).toBe('2.7.16')
   })
 
-  // it('tag', async () => {
-  //   const version = await latestVersion('vue', { version: 'legacy' })
-  //   expect(version).toBe('2.7.16')
-  // })
+  it('tag', async () => {
+    const version = await latestVersion('vue', { version: 'legacy' })
+    expect(version).toBe('2.7.16')
+  })
 
-  // it('cwd', async () => {
-  //   // 测试使用用户目录的.npmrc里面配置的源来找包
-  //   const version = await latestVersion('abort-controller', { version: 'latest', cwd: process.cwd() })
-  //   expect(version).toBe('3.0.0')
-  // })
+  it('cwd', async () => {
+    // 测试使用用户目录的.npmrc里面配置的源来找包
+    const version = await latestVersion('abort-controller', { version: 'latest', cwd: process.cwd() })
+    expect(version).toBe('3.0.0')
+  })
 
-  // it('timeout', async () => {
-  //   // 测试设置超时单位ms
-  //   const version = await latestVersion('abort-controller', { version: 'latest', timeout: 5000 })
-  //   expect(version).toBe('3.0.0')
-  // })
+  it('timeout', async () => {
+    // 测试设置超时单位ms
+    const version = await latestVersion('abort-controller', { version: 'latest', timeout: 5000 })
+    expect(version).toBe('3.0.0')
+  })
 })
