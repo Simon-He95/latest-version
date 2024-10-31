@@ -1,4 +1,7 @@
 import { exec } from 'node:child_process'
+import { platform } from 'node:os'
+import path, { sep } from 'node:path'
+import { cwd } from 'node:process'
 import type { ExecOptions } from 'node:child_process'
 
 export async function latestVersion(pkgname: string, options: ExecOptions & { version?: string, concurrency?: number } = {}) {
@@ -8,6 +11,10 @@ export async function latestVersion(pkgname: string, options: ExecOptions & { ve
 
 function fetchVersion(pkgname: string, version: string, execOptions: ExecOptions) {
   return new Promise<string>((resolve, reject) => {
+    const isWindows = platform() === 'win32'
+    if (isWindows && execOptions.cwd) {
+      execOptions.cwd = (execOptions.cwd as string).split(sep).join(sep)
+    }
     exec(`npm show ${pkgname} --json`, { encoding: 'utf-8', ...execOptions }, (err, stdout) => {
       if (err) {
         reject(err)
