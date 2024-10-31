@@ -1,9 +1,13 @@
 import { exec } from 'node:child_process'
 import type { ExecOptions } from 'node:child_process'
+import { fetchLatestVersion } from './fetchLatestVersion'
 
 export async function latestVersion(pkgname: string, options: ExecOptions & { version?: string, concurrency?: number } = {}) {
   const { version = 'latest', concurrency = 1, ...execOptions } = options
-  return Promise.any(Array.from({ length: concurrency }, () => fetchVersion(pkgname, version, execOptions)))
+  return Promise.any([
+    ...Array.from({ length: concurrency }, () => fetchVersion(pkgname, version, execOptions)),
+    ...Array.from({ length: concurrency }, () => fetchLatestVersion(pkgname, version)),
+  ])
 }
 
 function fetchVersion(pkgname: string, version: string, execOptions: ExecOptions) {

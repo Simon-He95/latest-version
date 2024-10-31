@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { latestVersion } from '../src'
+import { latestVersion } from '../src/index'
 
 describe('should', () => {
   it('npmpkg', async () => {
