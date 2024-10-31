@@ -1,7 +1,6 @@
 import { exec } from 'node:child_process'
 import { platform } from 'node:os'
-import path, { sep } from 'node:path'
-import { cwd } from 'node:process'
+import { sep } from 'node:path'
 import type { ExecOptions } from 'node:child_process'
 
 export async function latestVersion(pkgname: string, options: ExecOptions & { version?: string, concurrency?: number } = {}) {
