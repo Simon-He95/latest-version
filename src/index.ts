@@ -12,7 +12,7 @@ export async function latestVersion(pkgname: string, options: { version?: string
 
 function fetchVersionWithShow(pkgname: string, version: string) {
   return new Promise<string>((resolve, reject) => {
-    const { result, status } = jsShell(`npm show ${pkgname} --json`, 'pipe')
+    const { result, status } = jsShell(`npm show ${pkgname} --json`)
     if (status !== 0) {
       reject(result)
       return
@@ -34,7 +34,7 @@ function fetchVersionWithShow(pkgname: string, version: string) {
 
 function fetchVersionWithView(pkgname: string, version: string) {
   return new Promise<string>((resolve, reject) => {
-    const { result, status } = jsShell(`npm view ${pkgname} --json`, 'pipe')
+    const { result, status } = jsShell(`npm view ${pkgname} --json`)
     if (status !== 0) {
       reject(result)
       return
