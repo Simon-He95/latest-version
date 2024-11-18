@@ -3,7 +3,7 @@ import { fetchLatestVersion } from './fetchLatestVersion'
 
 export async function latestVersion(pkgname: string, options: { version?: string, concurrency?: number } = {}) {
   const { version = 'latest', concurrency = 1 } = options
-  return Promise.all([
+  return Promise.any([
     ...Array.from({ length: concurrency }, () => fetchVersionWithView(pkgname, version)),
     ...Array.from({ length: concurrency }, () => fetchVersionWithShow(pkgname, version)),
     ...Array.from({ length: concurrency }, () => fetchLatestVersion(pkgname, version)),
