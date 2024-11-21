@@ -54,7 +54,7 @@
     "bumpp": "^8.2.1",
     "eslint": "^9.10.0",
     "latest-version": "^9.0.0",
-    "lazy-js-utils": "^0.1.23",
+    "lazy-js-utils": "^0.1.24",
     "lint-staged": "^13.3.0",
     "picocolors": "^1.1.0",
     "prettier": "^2.8.8",
