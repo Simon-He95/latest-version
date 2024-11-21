@@ -12,10 +12,12 @@ export async function latestVersion(pkgname: string, options: { version?: string
 }
 
 async function fetchVersionWithShow(pkgname: string, version: string) {
-  const { result, status } = await jsShell(`npm show ${pkgname} --json`)
+  const { result, status } = await jsShell(`npm show ${pkgname} --json`, {
+    errorExit: false,
+  })
 
   if (status !== 0) {
-    throw new Error(result)
+    return Promise.reject(result)
   }
   const { versions, 'dist-tags': distTags } = JSON.parse(result)
   if (distTags[version]) {
@@ -26,9 +28,12 @@ async function fetchVersionWithShow(pkgname: string, version: string) {
 }
 
 async function fetchVersionWithView(pkgname: string, version: string) {
-  const { result, status } = await jsShell(`npm view ${pkgname} --json`)
+  const { result, status } = await jsShell(`npm view ${pkgname} --json`, {
+    errorExit: false,
+  })
+
   if (status !== 0) {
-    throw new Error(result)
+    return Promise.reject(result)
   }
   const { versions, 'dist-tags': distTags } = JSON.parse(result)
   if (distTags[version]) {
