@@ -1,6 +1,6 @@
 import { retryAsync } from 'lazy-js-utils'
-import { jsShell } from 'lazy-js-utils/dist/node'
-import { fetchLatestVersion } from './fetchLatestVersion'
+import { jsShell } from 'lazy-js-utils/node'
+import { fetchLatestVersion } from './fetchLatestVersion.js'
 
 // 添加缓存机制
 const cache = new Map<string, { data: string, timestamp: number }>()
@@ -60,7 +60,7 @@ function parseVersionData(data: any, version: string): string {
 
   // 查找匹配的版本
   if (version !== 'latest') {
-    const matchedVersion = versions.findLast((item: string) => item.startsWith(version))
+    const matchedVersion = (versions as any).findLast((item: string) => item.startsWith(version))
     if (matchedVersion) {
       return matchedVersion
     }
@@ -94,7 +94,7 @@ export async function latestVersion(pkgname: string, options: LatestVersionOptio
       withTimeout(fetchVersionWithView(pkgname, version), timeout),
       withTimeout(fetchVersionWithShow(pkgname, version), timeout),
       withTimeout(fetchLatestVersion(pkgname, version), timeout),
-    ]), concurrency)
+    ]), concurrency) as string
 
     // 缓存结果
     if (useCache && result) {
