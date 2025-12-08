@@ -1,7 +1,7 @@
 {
   "name": "@simon_he/latest-version",
   "type": "module",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "packageManager": "pnpm@7.33.7",
   "description": "Resilient helper for resolving npm package versions with caching and retries.",
   "author": "Simon He",
