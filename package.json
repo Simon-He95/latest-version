@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.14",
   "packageManager": "pnpm@7.33.7",
-  "description": "",
+  "description": "Resilient helper for resolving npm package versions with caching and retries.",
   "author": "Simon He",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Simon-He95",
@@ -17,32 +17,37 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "typesVersions": {
     "*": {
       "*": [
         "./dist/*",
-        "./dist/index.d.ts"
+        "./dist/index.d.mts",
+        "./dist/index.d.cts"
       ]
     }
   },
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18.12.0"
+  },
   "scripts": {
     "build": "tsdown ./src/index.ts --format cjs,esm --dts --clean --minify",
     "dev": "npm run build -- --watch src",
     "format": "prettier --write --cache .",
     "lint": "eslint . --cache",
     "lint:fix": "pnpm run lint --fix",
-    "prepublishOnly": "nr build",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
     "test": "vitest",
@@ -50,11 +55,15 @@
   },
   "dependencies": {
     "latest-version": "^9.0.0",
-    "lazy-js-utils": "^0.1.49"
+    "lazy-js-utils": "^0.1.49",
+    "semver": "^7.6.3",
+    "validate-npm-package-name": "^5.0.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.16.0",
     "@types/node": "^18.19.130",
+    "@types/semver": "^7.7.1",
+    "@types/validate-npm-package-name": "^4.0.2",
     "bumpp": "^8.2.1",
     "eslint": "^9.39.1",
     "lint-staged": "^13.3.0",

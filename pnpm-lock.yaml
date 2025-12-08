@@ -6,6 +6,8 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^3.16.0
       '@types/node': ^18.19.130
+      '@types/semver': ^7.7.1
+      '@types/validate-npm-package-name': ^4.0.2
       bumpp: ^8.2.1
       eslint: ^9.39.1
       latest-version: ^9.0.0
@@ -14,16 +16,22 @@ importers:
       picocolors: ^1.1.1
       prettier: ^2.8.8
       rimraf: ^3.0.2
+      semver: ^7.6.3
       tsdown: ^0.17.1
       tsx: ^3.14.0
       typescript: ^4.9.5
+      validate-npm-package-name: ^5.0.1
       vitest: ^3.2.4
     dependencies:
       latest-version: 9.0.0
       lazy-js-utils: 0.1.49
+      semver: 7.7.3
+      validate-npm-package-name: 5.0.1
     devDependencies:
       '@antfu/eslint-config': 3.16.0_vkezuv52x3vbteaww2ph7d7lki
       '@types/node': 18.19.130
+      '@types/semver': 7.7.1
+      '@types/validate-npm-package-name': 4.0.2
       bumpp: 8.2.1
       eslint: 9.39.1
       lint-staged: 13.3.0
@@ -1320,8 +1328,16 @@ packages:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
     dev: true
 
+  /@types/semver/7.7.1:
+    resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
+    dev: true
+
   /@types/unist/3.0.3:
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+    dev: true
+
+  /@types/validate-npm-package-name/4.0.2:
+    resolution: {integrity: sha512-lrpDziQipxCEeK5kWxvljWYhUvOiB2A9izZd9B2AFarYAkqZshb4lPbRs7zKEic6eGtH8V/2qJW+dPp9OtF6bw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/8.34.0_hidwl4izusxm5ywjey5fdrk5vq:
@@ -1433,7 +1449,7 @@ packages:
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.7.2
+      semver: 7.7.3
       ts-api-utils: 2.1.0_typescript@4.9.5
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -1853,7 +1869,7 @@ packages:
       fast-glob: 3.3.3
       kleur: 4.1.5
       prompts: 2.4.2
-      semver: 7.7.2
+      semver: 7.7.3
     dev: true
 
   /cac/6.7.14:
@@ -2257,7 +2273,7 @@ packages:
       eslint: '>=6.0.0'
     dependencies:
       eslint: 9.39.1
-      semver: 7.7.2
+      semver: 7.7.3
     dev: true
 
   /eslint-compat-utils/0.6.5_eslint@9.39.1:
@@ -2267,7 +2283,7 @@ packages:
       eslint: '>=6.0.0'
     dependencies:
       eslint: 9.39.1
-      semver: 7.7.2
+      semver: 7.7.3
     dev: true
 
   /eslint-config-flat-gitignore/1.0.1_eslint@9.39.1:
@@ -2373,7 +2389,7 @@ packages:
       eslint-import-context: 0.1.8_unrs-resolver@1.9.0
       is-glob: 4.0.3
       minimatch: 10.0.2
-      semver: 7.7.2
+      semver: 7.7.3
       stable-hash-x: 0.1.1
       unrs-resolver: 1.9.0
     transitivePeerDependencies:
@@ -2395,7 +2411,7 @@ packages:
       espree: 10.4.0
       esquery: 1.6.0
       parse-imports-exports: 0.2.4
-      semver: 7.7.2
+      semver: 7.7.3
       spdx-expression-parse: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -2435,7 +2451,7 @@ packages:
       globals: 15.15.0
       ignore: 5.3.2
       minimatch: 9.0.5
-      semver: 7.7.2
+      semver: 7.7.3
       ts-declaration-location: 1.0.7_typescript@4.9.5
     transitivePeerDependencies:
       - supports-color
@@ -2514,7 +2530,7 @@ packages:
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
       regjsparser: 0.10.0
-      semver: 7.7.2
+      semver: 7.7.3
       strip-indent: 3.0.0
     dev: true
 
@@ -2543,7 +2559,7 @@ packages:
       natural-compare: 1.4.0
       nth-check: 2.1.1
       postcss-selector-parser: 6.1.2
-      semver: 7.7.2
+      semver: 7.7.3
       vue-eslint-parser: 9.4.3_eslint@9.39.1
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
@@ -3100,7 +3116,7 @@ packages:
       acorn: 8.15.0
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      semver: 7.7.2
+      semver: 7.7.3
     dev: true
 
   /keyv/4.5.4:
@@ -3850,7 +3866,7 @@ packages:
       ky: 1.8.1
       registry-auth-token: 5.1.0
       registry-url: 6.0.1
-      semver: 7.7.2
+      semver: 7.7.3
     dev: false
 
   /package-manager-detector/1.3.0:
@@ -4268,16 +4284,10 @@ packages:
     hasBin: true
     dev: true
 
-  /semver/7.7.2:
-    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   /semver/7.7.3:
     resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /set-blocking/2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
@@ -4756,6 +4766,11 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
+  /validate-npm-package-name/5.0.1:
+    resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dev: false
+
   /vite-node/3.2.4_lfp4py3wytt5eukmkl4wshsksq:
     resolution: {integrity: sha512-EbKSKh+bh1E1IFxeO0pg1n4dvoOTt0UDiXMd/qn++r98+jPO1xtJilvXldeuQ8giIB5IkpjCgMleHMNEsGH6pg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -4913,7 +4928,7 @@ packages:
       espree: 9.6.1
       esquery: 1.6.0
       lodash: 4.17.21
-      semver: 7.7.2
+      semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
     dev: true
